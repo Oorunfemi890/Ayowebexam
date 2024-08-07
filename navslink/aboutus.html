@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABOUT US</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar .back-arrow {
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .containers {
+            background-color: #ffffff;
+            width: 96%;
+            margin: 20px auto;
+            padding: 20px;
+            text-transform: capitalize;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hidden-info {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            display: block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .containers {
+                width: 90%;
+                padding: 15px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 5px;
+            }
+            .navbar a {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            .containers {
+                width: 100%;
+                margin: 10px 0;
+                padding: 10px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="back-arrow" onclick="goBack()">&#8592;</span>
+        <a href="#">BACK</a>
+    </div>
+    <h2 style="text-align: center;">ABOUT US</h2>
+    <div class="containers">
+        <h3>
+            Learning at your pace in our school we offer premium packages for learning in our school
+        </h3>
+        <h4>vision</h4>
+        <p>
+            To be regarded as the foremost university providing highly accessible and enhanced quality education anchored by social justice, equity, equality and national cohesion through a comprehensive reach that transcends all barriers.
+        </p>
+        <h4>mission</h4>
+        <p>
+            To provide functional, cost-effective, flexible learning which adds life-long value to quality education for all who seek knowledge.
+        </p>
+        <h4>objectives</h4>
+        <p>
+            In addition to the broad vision and mission statements, some of the major objectives of the National Open University of Nigeria is to:
+        </p>
+        <ul>
+            <li>ensure equity and equality of opportunities in education generally but specifically in university education;</li>
+            <li>provide a wider access to education generally but specifically university education in Nigeria;</li>
+            <li>enhance Education For All and life-long learning;</li>
+            <li>provide the entrenchment of global learning culture;</li>
+            <li>provide instructional resources via an intensive use of information and communication technology;</li>
+            <li>provide flexible, but qualitative education; and</li>
+            <li>reduce the cost, inconveniences, and hassles of easy access to education and its delivery.</li>
+        </ul>
+        <button onclick="revealInfo()">Contact Us</button>
+        <div id="hidden-info" class="hidden-info">
+            <p><strong>Phone Number:</strong> 090-3539-8010</p>
+            <p><strong>Email:</strong> olorunfemiayomide045@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function revealInfo() {
+            var infoDiv = document.getElementById('hidden-info');
+            if (infoDiv.style.display === 'none' || infoDiv.style.display === '') {
+                infoDiv.style.display = 'block';
+            } else {
+                infoDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+
+<body>
+    <div>
+        <h3 style="text-align: center;"> QUESTION</h3>
+        <p>Define a function and give an example</p>
+        <h3 style="text-align: center;">ANSWER</h3>
+        <li>function = In JavaScript, a function is defined using the function keyword followed by a name, a list of
+            parameters (enclosed in parentheses), and a block of code (enclosed in curly braces) that contains the
+            statements to be executed when the function is called.
+        </li> <br><br><br>
+
+        <h2 style="text-align: center;">EXAMPLES</h2>
+        <p>Let's define a simple function that takes two numbers as parameters, adds them, and returns the result.</p>
+        <p id="results"></p>
+
+        <script>
+            // Function definition
+            function addNumbers(a, b) {
+                return a + b;
+            }
+
+            // Calling the function and storing the result
+            var result = addNumbers(5, 3);
+
+            // Logging the result to the console
+            document.getElementById('results').textContent = 'The result is: ' + result;
+        </script>
+
+
+        <h2 style="text-align: center;">MORE COMPLEX EXAMPLES ON FUNCTION</h2>
+        <p>Let's create a more complex example where we define a function to find the maximum number in an
+            array. </p>
+            <p id="highestNumber"></p>
+
+        <script>
+            // Function definition
+            function findMax(arr) {
+                if (arr.length === 0) {
+                    return null; // Return null for an empty array
+                }
+                var max = arr[0]; // Assume the first element is the maximum
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i]; // Update max if a larger element is found
+                    }
+                }
+                return max; // Return the maximum value found
+            }
+
+            // Example array
+            var numbers = [3, 5, 7, 2, 30, 1, 4];
+
+            // Calling the function and storing the result
+            var maxNumber = findMax(numbers);
+
+            // Logging the result to the console
+            document.getElementById('highestNumber').textContent = 'The highest number is : ' + maxNumber;
+        </script>
+    </div>
+</body>
+
+</html>

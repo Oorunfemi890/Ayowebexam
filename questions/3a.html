@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+</head>
+
+<body>
+    <div>
+        <h1> QUESTIONS</h1>
+        <p>write a javascript code that takes number from 1-10 and return only the even
+            numbers
+        </p>
+        <h3 style="text-align: center;">Answer</h3>
+        <p id="evenNumbers"></p>
+        <script>
+            // Function to return even numbers from 1 to 10
+            function getEvenNumbers() {
+                var evenNumbers = [];
+                for (var i = 1; i <= 10; i++) {
+                    if (i % 2 === 0) {
+                        evenNumbers.push(i);
+                    }
+                }
+                return evenNumbers;
+            }
+
+            // Calling the function and storing the result
+            var result = getEvenNumbers();
+
+            // Displaying the result in the paragraph with id 'evenNumbers'
+            document.getElementById('evenNumbers').textContent = 'Even numbers from 1 to 10 are : ' + result.join(', ');
+        </script>
+    </div>
+</body>
+
+</html>
