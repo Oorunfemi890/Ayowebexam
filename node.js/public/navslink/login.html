@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <style>
+        /* Your existing styles here */
+        #container {
+            height: auto;
+            width: 35%;
+            margin: auto;
+            background-color: #a9a9a9;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            padding-top: 0px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+    
+        .center-content {
+            text-align: center;
+            margin-top: 10px;
+        }
+    
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+    
+        input {
+            display: inline-block;
+            padding: 5px;
+            font-size: 1em;
+            width: 80%;
+            height: 35px;
+            border-radius: 50px;
+            margin: 0 auto;
+        }
+    
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: large;
+        }
+    
+        .links a {
+            text-decoration: none;
+        }
+    
+        .privacy {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            margin-right: 0;
+        }
+    
+        #radio {
+            width: 20px;
+            margin-right: 10px;
+        }
+    
+        .sign-in-btn {
+            display: block;
+            margin: 20px auto 0 auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            #container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            input {
+                width: 90%;
+            }
+
+            .links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .privacy {
+                margin-right: 0;
+            }
+
+            .sign-in-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>SIGN IN</h2>
+        <form id="login-form">
+            <div class="center-content">
+                <label for="username">Username</label>
+                <br>
+                <input type="text" name="username" id="username" required>
+                <br><br>
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="links">
+                <p><a href="regis.html">Create Account</a></p>
+                <p><a href="#">Forgot password</a></p>
+            </div>
+            <div class="privacy">
+                <input type="checkbox" id="radio" name="privacy" required>
+                <p>Accept privacy terms and conditions</p>
+            </div>
+            <button type="submit" class="sign-in-btn">Sign In</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const response = await fetch('/user/login', {  // Updated endpoint to '/user/login'
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    window.location.href = '/navslink/course.html'; 
+                    // Redirect to courses.html on successful login
+                } else {
+                    alert(result.message || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred');
+            }
+        });
+    </script>
+</body>
+</html>

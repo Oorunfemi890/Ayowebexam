@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-details {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-details p {
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 768px) {
+            .form-container,
+            .user-details {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .form-container,
+            .user-details {
+                max-width: 70%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1" onclick="goBack()" style="cursor: pointer;">&#8592; Back</span>
+        </div>
+    </nav>
+
+    <div id="container" class="container">
+        <h1 class="text-center">REGISTRATION FORMS</h1>
+        <p>Welcome to our school registration forms site. Click on the dropdown to choose your registration form type.</p>
+
+        <div class="mb-3">
+            <label for="form-selector" class="form-label">Select Registration Form:</label>
+            <select id="form-selector" class="form-select">
+                <option value="">--Select--</option>
+                <option value="form1">FRESH STUDENT</option>
+                <option value="form2">TRANSFER STUDENT</option>
+            </select>
+        </div>
+
+        <!-- Fresh Student Form -->
+        <div id="form1" class="form-container">
+            <h2>Fresh Student Form</h2>
+            <form id="freshStudentForm" action="/user/signup" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">First Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State:</label>
+                    <input type="text" id="state" name="state" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Phonenumber" class="form-label">Phone Number:</label>
+                    <input type="number" id="Phonenumber" name="Phonenumber" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+               
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" id="address" name="address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <select id="gender" name="gender" class="form-select" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <!-- Transfer Student Form -->
+        <div id="form2" class="form-container">
+            <h2>Transfer Student Form</h2>
+            <form id="transferStudentForm" action="/user/signup" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">First Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State:</label>
+                    <input type="text" id="state" name="state" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Phonenumber" class="form-label">Phone Number:</label>
+                    <input type="number" id="Phonenumber" name="Phonenumber" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" id="address" name="address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <select id="gender" name="gender" class="form-select" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="previousSchools" class="form-label">Previous Schools:</label>
+                    <input type="text" id="previousSchools" name="previousSchools" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reasonTransfer" class="form-label">Reason For Transfer:</label>
+                    <input type="text" id="reasonTransfer" name="reasonTransfer" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div id="user-details" class="user-details">
+            <h2>User Details</h2>
+            <p id="details"></p>
+            <button id="confirm-btn" class="btn btn-success" onclick="confirmProfile()">Confirm Profile</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('form-selector').addEventListener('change', function () {
+            var form1 = document.getElementById('form1');
+            var form2 = document.getElementById('form2');
+            var userDetails = document.getElementById('user-details');
+            form1.style.display = 'none';
+            form2.style.display = 'none';
+            userDetails.style.display = 'none';
+
+            if (this.value === 'form1') {
+                form1.style.display = 'block';
+            } else if (this.value === 'form2') {
+                form2.style.display = 'block';
+            }
+        });
+
+        document.getElementById('freshStudentForm').addEventListener('submit', function (event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+
+        document.getElementById('transferStudentForm').addEventListener('submit', function (event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
