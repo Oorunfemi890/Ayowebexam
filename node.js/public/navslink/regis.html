@@ -4,43 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRATION</title>
+    <title>Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Include the intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
     <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
         .form-container {
             display: none;
             margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: left;
-            max-width: 500px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .user-details {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .user-details p {
-            white-space: pre-wrap;
+        #message {
+            font-size: 16px;
+            margin-top: 15px;
         }
 
         @media (max-width: 768px) {
-            .form-container,
-            .user-details {
+            .form-container {
                 max-width: 90%;
                 margin: 0 auto;
             }
         }
 
         @media (min-width: 769px) and (max-width: 1200px) {
-            .form-container,
-            .user-details {
+            .form-container {
                 max-width: 70%;
                 margin: 0 auto;
             }
@@ -49,29 +57,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" onclick="goBack()" style="cursor: pointer;">&#8592; Back</span>
         </div>
     </nav>
 
     <div id="container" class="container">
-        <h1 class="text-center">REGISTRATION FORMS</h1>
-        <p>Welcome to our school registration forms site. Click on the dropdown to choose your registration form type.</p>
+        <h1 class="text-center">Registration Forms</h1>
+        <p class="text-center">Welcome to our school registration site. Choose your registration type from the dropdown.</p>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <label for="form-selector" class="form-label">Select Registration Form:</label>
             <select id="form-selector" class="form-select">
                 <option value="">--Select--</option>
-                <option value="form1">FRESH STUDENT</option>
-                <option value="form2">TRANSFER STUDENT</option>
+                <option value="form1">Fresh Student</option>
+                <option value="form2">Transfer Student</option>
             </select>
         </div>
+
+        <!-- Feedback message -->
+        <p id="message" class="text-center"></p>
 
         <!-- Fresh Student Form -->
         <div id="form1" class="form-container">
             <h2>Fresh Student Form</h2>
-            <form id="freshStudentForm" action="/user/signup" method="POST">
+            <form id="freshStudentForm" action="/user/register" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
                     <input type="text" id="username" name="username" class="form-control" required>
@@ -98,17 +109,55 @@
                 </div>
                 <div class="mb-3">
                     <label for="state" class="form-label">State:</label>
-                    <input type="text" id="state" name="state" class="form-control" required>
+                    <select id="state" name="state" class="form-select" required>
+                        <option value="">Select State</option>
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nasarawa">Nasarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+                        <option value="FCT">Federal Capital Territory</option>
+                    </select>     
                 </div>
                 <div class="mb-3">
                     <label for="Phonenumber" class="form-label">Phone Number:</label>
-                    <input type="number" id="Phonenumber" name="Phonenumber" class="form-control" required>
+                    <input type="tel" id="Phonenumber" name="Phonenumber" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-               
                 <div class="mb-3">
                     <label for="address" class="form-label">Address:</label>
                     <input type="text" id="address" name="address" class="form-control" required>
@@ -121,14 +170,14 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
         </div>
 
         <!-- Transfer Student Form -->
         <div id="form2" class="form-container">
             <h2>Transfer Student Form</h2>
-            <form id="transferStudentForm" action="/user/signup" method="POST">
+            <form id="transferStudentForm" action="/user/register" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
                     <input type="text" id="username" name="username" class="form-control" required>
@@ -155,11 +204,50 @@
                 </div>
                 <div class="mb-3">
                     <label for="state" class="form-label">State:</label>
-                    <input type="text" id="state" name="state" class="form-control" required>
+                    <select id="state" name="state" class="form-select" required>
+                        <option value="">Select State</option>
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nasarawa">Nasarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+                        <option value="FCT">Federal Capital Territory</option>
+                    </select>     
                 </div>
                 <div class="mb-3">
                     <label for="Phonenumber" class="form-label">Phone Number:</label>
-                    <input type="number" id="Phonenumber" name="Phonenumber" class="form-control" required>
+                    <input type="tel" id="Phonenumber" name="Phonenumber" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
@@ -176,8 +264,7 @@
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-                </div>
-                <div class="mb-3">
+                </div>                <div class="mb-3">
                     <label for="previousSchools" class="form-label">Previous Schools:</label>
                     <input type="text" id="previousSchools" name="previousSchools" class="form-control" required>
                 </div>
@@ -185,57 +272,95 @@
                     <label for="reasonTransfer" class="form-label">Reason For Transfer:</label>
                     <input type="text" id="reasonTransfer" name="reasonTransfer" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
-        </div>
-
-        <div id="user-details" class="user-details">
-            <h2>User Details</h2>
-            <p id="details"></p>
-            <button id="confirm-btn" class="btn btn-success" onclick="confirmProfile()">Confirm Profile</button>
         </div>
     </div>
 
-    <script>
-        document.getElementById('form-selector').addEventListener('change', function () {
-            var form1 = document.getElementById('form1');
-            var form2 = document.getElementById('form2');
-            var userDetails = document.getElementById('user-details');
-            form1.style.display = 'none';
-            form2.style.display = 'none';
-            userDetails.style.display = 'none';
+       <!-- Include the intl-tel-input JS -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
-            if (this.value === 'form1') {
-                form1.style.display = 'block';
-            } else if (this.value === 'form2') {
-                form2.style.display = 'block';
-            }
-        });
-
-        document.getElementById('freshStudentForm').addEventListener('submit', function (event) {
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                event.preventDefault();
-                alert('Passwords do not match!');
-            }
-        });
-
-        document.getElementById('transferStudentForm').addEventListener('submit', function (event) {
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                event.preventDefault();
-                alert('Passwords do not match!');
-            }
-        });
-
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+       <script>
+           // Show selected form
+           document.getElementById('form-selector').addEventListener('change', function () {
+               var form1 = document.getElementById('form1');
+               var form2 = document.getElementById('form2');
+               var messageParagraph = document.getElementById('message');
+               form1.style.display = 'none';
+               form2.style.display = 'none';
+               messageParagraph.textContent = ''; // Clear message
+   
+               if (this.value === 'form1') {
+                   form1.style.display = 'block';
+               } else if (this.value === 'form2') {
+                   form2.style.display = 'block';
+               }
+           });
+   
+           // Initialize intl-tel-input for phone number input fields
+           var phoneInputFields = document.querySelectorAll('input[type="tel"]');
+           phoneInputFields.forEach(function (input) {
+               window.intlTelInput(input, {
+                   initialCountry: "auto",
+                   geoIpLookup: function (callback) {
+                       fetch('https://ipinfo.io?token=<YOUR_TOKEN>', { method: 'GET', mode: 'cors' })
+                           .then(function (resp) {
+                               var countryCode = (resp && resp.country) ? resp.country : "us";
+                               callback(countryCode);
+                           });
+                   },
+                   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+               });
+           });
+   
+           // Handle form submissions
+           async function handleSubmit(event, formId) {
+               event.preventDefault();
+               const form = document.getElementById(formId);
+               const messageParagraph = document.getElementById('message');
+   
+               const formData = new FormData(form);
+               const data = {};
+               formData.forEach((value, key) => {
+                   data[key] = value;
+               });
+   
+               try {
+                   const response = await fetch('/user/register', {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json'
+                       },
+                       body: JSON.stringify(data)
+                   });
+   
+                   const result = await response.json();
+                   if (response.ok) {
+                       messageParagraph.style.color = 'green';
+                       messageParagraph.textContent = 'Registration successful! Redirecting...';
+                       setTimeout(() => window.location.href = 'course.html', 3000);
+                   } else {
+                       messageParagraph.style.color = 'red';
+                       messageParagraph.textContent = result.message || 'Registration failed.';
+                   }
+               } catch (error) {
+                   messageParagraph.style.color = 'red';
+                   messageParagraph.textContent = 'An error occurred during registration.';
+               }
+           }
+   
+           document.getElementById('freshStudentForm').addEventListener('submit', function (event) {
+               handleSubmit(event, 'freshStudentForm');
+           });
+   
+           document.getElementById('transferStudentForm').addEventListener('submit', function (event) {
+               handleSubmit(event, 'transferStudentForm');
+           });
+   
+           function goBack() {
+               window.history.back();
+           }
+       </script>
 </body>
 
 </html>

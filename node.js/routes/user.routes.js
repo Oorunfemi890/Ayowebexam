@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const userHandler = require('../handler/user.handler');
 
-// Route for registration (sign-up)
-router.post('/signup', userHandler.signup);
+// Route for user registration
+router.post('/register', userHandler.registerUser);
 
-// Route for login
-router.post('/login', userHandler.login);
+// Route for user login
+router.post('/login', userHandler.loginUser);
 
 module.exports = router;

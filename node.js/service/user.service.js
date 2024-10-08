@@ -1,29 +1,31 @@
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcrypt');
 const dataFilePath = path.join(__dirname, '../data/user.json');
 
-exports.registerUser = (userDetails) => {
+// Save a new user to the JSON file
+const saveUser = (userDetails) => {
     return new Promise((resolve, reject) => {
-        // Read existing users from the JSON file
+        // Read existing user data
         fs.readFile(dataFilePath, 'utf8', (err, data) => {
             if (err) {
-                return reject(new Error('Error reading data'));
+                return reject('Error reading user data');
             }
 
             let users = [];
             try {
-                users = JSON.parse(data);  // Parse existing users
+                users = JSON.parse(data); // Parse existing users
             } catch (err) {
-                return reject(new Error('Error parsing user data'));
+                // Handle JSON parsing error
             }
 
-            // Add the new user
+            // Add the new user data
             users.push(userDetails);
 
-            // Save the updated user list to the JSON file
+            // Save the updated user list back to the file
             fs.writeFile(dataFilePath, JSON.stringify(users, null, 2), (err) => {
                 if (err) {
-                    return reject(new Error('Error saving user data'));
+                    return reject('Error saving user data');
                 }
                 resolve();
             });
@@ -31,29 +33,44 @@ exports.registerUser = (userDetails) => {
     });
 };
 
-exports.loginUser = (username, password) => {
+// Hash the password and save the user
+const registerUser = async (userDetails) => {
+    const hashedPassword = await bcrypt.hash(userDetails.password, 10); // Hash the password
+    const newUser = { ...userDetails, password: hashedPassword }; // Create new user with hashed password
+    return saveUser(newUser); // Save the user
+};
+
+// Authenticate user by checking username and password
+const authenticateUser = async (username, password) => {
     return new Promise((resolve, reject) => {
-        // Read user data from the JSON file
+        // Read user data
         fs.readFile(dataFilePath, 'utf8', (err, data) => {
             if (err) {
-                return reject(new Error('Error reading data'));
+                return reject('Error reading user data');
             }
 
             let users = [];
             try {
-                users = JSON.parse(data);  // Parse existing users
+                users = JSON.parse(data); // Parse the JSON data
             } catch (err) {
-                return reject(new Error('Error parsing user data'));
+                // Handle JSON parsing error
             }
 
-            // Find the user with matching username and password
-            const user = users.find(u => u.username === username && u.password === password);
-
+            // Find user with matching username
+            const user = users.find(user => user.username === username);
             if (user) {
-                resolve();
+                // Check password match
+                bcrypt.compare(password, user.password, (err, isMatch) => {
+                    if (err) {
+                        return reject('Error comparing passwords');
+                    }
+                    resolve(isMatch ? user : null); // Resolve with user data if the password matches
+                });
             } else {
-                reject(new Error('Invalid username or password'));
+                resolve(null); // User not found
             }
         });
     });
 };
+
+module.exports = { registerUser, authenticateUser };

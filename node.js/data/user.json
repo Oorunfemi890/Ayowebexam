@@ -1,81 +1,14 @@
 [
   {
-    "username": "olorunfemi890",
-    "password": "Ayrichie890",
-    "name": "Ayomide",
-    "lastName": "Olorunfemi",
-    "dob": "1998-04-23",
-    "state": "anambra state",
-    "Phonenumber": "09056454873",
-    "address": "6 salami agbaje close off",
-    "gender": "Male"
-  },
-  {
-    "username": "Abiodun890",
-    "password": "Abiodun890?",
-    "name": "Ayomide",
-    "lastName": "Olorunfemi",
-    "dob": "1998-04-23",
-    "state": "anambra state",
-    "Phonenumber": "09056454873",
-    "address": "6 salami agbaje close off",
-    "gender": "Male"
-  },
-  {
     "username": "olorunfemiayomide045",
-    "password": "AYOMIDE123",
-    "name": "PRINCESS",
-    "lastName": "QUEEN",
-    "dob": "2004-08-07",
-    "state": "osun state",
-    "Phonenumber": "09067564789",
-    "address": "64 moferere street utaja road",
-    "gender": "Male"
-  },
-  {
-    "username": "kinggbolahan890",
-    "password": "KINGGBOLAHAN",
-    "name": "King",
-    "lastName": "Gbolahan",
-    "dob": "1998-11-23",
-    "state": "ekiti state",
-    "Phonenumber": "09089786756",
-    "address": "73 modupe young thomas estate",
-    "gender": "Male"
-  },
-  {
-    "username": "olorunfemi890",
-    "password": "Ayrichie890",
-    "name": "OLORUNFEMI",
-    "lastName": "AYOMIDE",
-    "dob": "2003-08-21",
-    "state": "Benue state",
-    "Phonenumber": "09034393810",
-    "address": "54 moferere street ",
-    "gender": "Male"
-  },
-  {
-    "username": "umarmuhamed765",
-    "password": "muhamed890",
-    "name": "Umar",
-    "lastName": "Muhamed",
-    "dob": "2000-11-27",
-    "state": "ekiti state",
-    "Phonenumber": "09087654321",
-    "email": "umarmuhamed@gmail.com",
-    "address": "23 agonfon meta",
-    "gender": "Male"
-  },
-  {
-    "username": "olorunfemiayomide045",
-    "password": "AYOMIDE890",
-    "name": "olorunfemi",
-    "lastName": "ayomide",
-    "dob": "2005-11-18",
-    "state": "ondo state",
-    "Phonenumber": "09056897654",
+    "password": "$2b$10$0qbJhrfaCIUbGokhUU2K8evdynRaxwOSA0Hi5Gglabs6EUgp2EPg6",
+    "name": "Ayomide",
+    "lastName": "akintola",
+    "dob": "2000-03-04",
+    "state": "Ondo",
+    "Phonenumber": "09087654324",
     "email": "olorunfemiayomide045@gmail.com",
-    "address": "6 salami agbaje close off",
+    "address": "64 moferere street utaja road",
     "gender": "Male"
   }
 ]
